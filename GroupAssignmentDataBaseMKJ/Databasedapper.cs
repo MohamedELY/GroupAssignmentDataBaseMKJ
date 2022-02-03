@@ -100,5 +100,21 @@ namespace GroupAssignmentDataBaseMKJ
 
             return products;
         }
+        /// <summary>
+        /// Shows all inventory
+        /// </summary>
+        /// <returns></returns>
+        public static List<Models.Inventory> ShowAllInventory()
+        {
+            string sql = "SELECT * FROM Inventory";
+            var inventory = new List<Models.Inventory>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                inventory = connectin.Query<Models.Inventory>(sql).ToList();
+            }
+
+            return inventory;
+        }
     }
 }
