@@ -6,56 +6,99 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data.SqlClient;
 
+
 namespace GroupAssignmentDataBaseMKJ
 {
     public class Databasedapper
     {
-       
+        /// <summary>
+        /// The connection string
+        /// </summary>
         static string connString = "data source=.\\SQLEXPRESS; initial catalog = Webshop; persist security info = True; Integrated Security = True;";
-        /// <summary>
-        /// Shows all Inventory from databse
-        /// </summary>
-        /// <returns></returns>
-        public static List<Models.Inventory> ShowAllInventory()
-        {
-            var sql = "select * from Inventory";
-            var inventory = new List<Models.Inventory>();
 
-            using (var connection = new SqlConnection(connString))
+        /// <summary>
+        /// Shows all categories.
+        /// </summary>
+        /// <returns> a list of the class Category</returns>
+        public static List<Models.Category> ShowAllCategories()
+        {
+            string sql = "SELECT * FROM categories";
+            var categories = new List<Models.Category>();
+
+            using (var connectin = new SqlConnection(connString))
             {
-                inventory = connection.Query<Models.Inventory>(sql).ToList();
+                categories = connectin.Query<Models.Category>(sql).ToList();
             }
-            return inventory;
+
+            return categories;
         }
-        /// <summary>
-        /// Shows all order details from database
-        /// </summary>
-        /// <returns></returns>
-        public static List<Models.OrderDetail> ShowAllOrderDetail()
-        {
-            var sql = "select * from OrderDetails";
-            var orderDetail = new List<Models.OrderDetail>();
 
-            using (var connection = new SqlConnection(connString))
+        /// <summary>
+        /// Shows all carts.
+        /// </summary>
+        /// <returns>a list of the class Cart</returns>
+        public static List<Models.Cart> ShowAllCart()
+        {
+            string sql = "SELECT * FROM Cart";
+            var cart = new List<Models.Cart>();
+
+            using (var connectin = new SqlConnection(connString))
             {
-                orderDetail = connection.Query<Models.OrderDetail>(sql).ToList();
+                cart = connectin.Query<Models.Cart>(sql).ToList();
             }
-            return orderDetail;
+
+            return cart;
         }
-        /// <summary>
-        /// Shows all orders from database
-        /// </summary>
-        /// <returns></returns>
-        public static List<Models.Order> ShowAllOrder()
-        {
-            var sql = "select * from Orders";
-            var order = new List<Models.Order>();
 
-            using (var connection = new SqlConnection(connString))
+        /// <summary>
+        /// Shows all customers.
+        /// </summary>
+        /// <returns>a list of the class Customer</returns>
+        public static List<Models.Customer> ShowAllCustomers()
+        {
+            string sql = "SELECT * FROM Customers";
+            var customers = new List<Models.Customer>();
+
+            using (var connectin = new SqlConnection(connString))
             {
-                order = connection.Query<Models.Order>(sql).ToList();
+                customers = connectin.Query<Models.Customer>(sql).ToList();
             }
-            return order;
+
+            return customers;
+        }
+
+        /// <summary>
+        /// Shows all shippers.
+        /// </summary>
+        /// <returns>a list of the class Shipper</returns>
+        public static List<Models.Shipper> ShowAllShippers()
+        {
+            string sql = "SELECT * FROM Shippers";
+            var shippers = new List<Models.Shipper>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                shippers = connectin.Query<Models.Shipper>(sql).ToList();
+            }
+
+            return shippers;
+        }
+
+        /// <summary>
+        /// Shows all products.
+        /// </summary>
+        /// <returns>a list of the class product</returns>
+        public static List<Models.Product> ShowAllProducts()
+        {
+            string sql = "SELECT * FROM Products";
+            var products = new List<Models.Product>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                products = connectin.Query<Models.Product>(sql).ToList();
+            }
+
+            return products;
         }
     }
 }

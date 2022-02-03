@@ -6,7 +6,7 @@ namespace GroupAssignmentDataBaseMKJ
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Databasedapper.ShowAllCategories();
         }
     }
 }
