@@ -103,7 +103,7 @@ namespace GroupAssignmentDataBaseMKJ
         /// <summary>
         /// Shows all inventory
         /// </summary>
-        /// <returns></returns>
+        /// <returns>a list of the class Inventory</returns>
         public static List<Models.Inventory> ShowAllInventory()
         {
             string sql = "SELECT * FROM Inventory";
@@ -115,6 +115,19 @@ namespace GroupAssignmentDataBaseMKJ
             }
 
             return inventory;
+        }
+
+        public static List<Models.OrderDetail> ShowAllOrderDetail()
+        {
+            string sql = "SELECT * FROM OrderDetails";
+            var orderDetails = new List<Models.OrderDetail>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                orderDetails = connectin.Query<Models.OrderDetail>(sql).ToList();
+            }
+
+            return orderDetails;
         }
     }
 }
