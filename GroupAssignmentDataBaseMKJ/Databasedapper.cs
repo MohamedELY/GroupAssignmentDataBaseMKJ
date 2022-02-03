@@ -116,5 +116,19 @@ namespace GroupAssignmentDataBaseMKJ
 
             return inventory;
         }
+        public static List<Models.OrderDetail> ShowAllOrderDetail()
+        {
+            string sql = "SELECT * FROM OrderDetails";
+            var orderDetails = new List<Models.OrderDetail>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                orderDetails = connectin.Query<Models.OrderDetail>(sql).ToList();
+            }
+
+            return orderDetails;
+        }
+
+        
     }
 }
