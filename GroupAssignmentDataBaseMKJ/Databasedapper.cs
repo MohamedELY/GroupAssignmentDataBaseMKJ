@@ -103,7 +103,7 @@ namespace GroupAssignmentDataBaseMKJ
         /// <summary>
         /// Shows all inventory from the database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>a list of the class Inventory</returns>
         public static List<Models.Inventory> ShowAllInventory()
         {
             string sql = "SELECT * FROM Inventory";
