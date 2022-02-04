@@ -8,8 +8,10 @@ namespace GroupAssignmentDataBaseMKJ
         static void Main(string[] args)
         {
             int chosenCategory = Shop.Handler.Categories();
+            Console.WriteLine(chosenCategory);
 
             int chosenproduct = Shop.Handler.ShowAndPickProduct(chosenCategory);
+            Console.WriteLine(chosenproduct);
         }
 
         /// <summary>
@@ -29,10 +31,12 @@ namespace GroupAssignmentDataBaseMKJ
                     {
                         correctInput = true;
                     }
+                    else
+                        Console.WriteLine("Incorrect Input");
                 }
-                Console.WriteLine("Incorrect Input");
+                else
+                    Console.WriteLine("Incorrect Input");
             }
-
             return num;
         }
 
