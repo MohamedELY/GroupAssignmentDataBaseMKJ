@@ -116,6 +116,11 @@ namespace GroupAssignmentDataBaseMKJ
 
             return inventory;
         }
+
+        /// <summary>
+        /// Shows all order detail.
+        /// </summary>
+        /// <returns>a list of the class OrderDetail</returns>
         public static List<Models.OrderDetail> ShowAllOrderDetail()
         {
             string sql = "SELECT * FROM OrderDetails";
@@ -128,7 +133,6 @@ namespace GroupAssignmentDataBaseMKJ
 
             return orderDetails;
         }
-
         
     }
 }
