@@ -100,6 +100,24 @@ namespace GroupAssignmentDataBaseMKJ
 
             return products;
         }
+
+        /// <summary>
+        /// Shows specific category products.
+        /// </summary>
+        /// <returns>a list of the class product</returns>
+        public static List<Models.Product> ShowSpecificProducts(int num)
+        {
+            string sql = $"SELECT * FROM Products WHERE CategoryID = {num}";
+            var products = new List<Models.Product>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                products = connectin.Query<Models.Product>(sql).ToList();
+            }
+
+            return products;
+        }
+
         /// <summary>
         /// Shows all inventory from the database
         /// </summary>
@@ -116,6 +134,7 @@ namespace GroupAssignmentDataBaseMKJ
 
             return inventory;
         }
+
         /// <summary>
         /// Shows all order details from the database
         /// </summary>
@@ -132,6 +151,7 @@ namespace GroupAssignmentDataBaseMKJ
 
             return orderDetails;
         }
+
         /// <summary>
         /// Shows all orders from the database
         /// </summary>

@@ -7,7 +7,9 @@ namespace GroupAssignmentDataBaseMKJ
     {
         static void Main(string[] args)
         {
+            int chosenCategory = Shop.Handler.Categories();
 
+            int chosenproduct = Shop.Handler.ShowAndPickProduct(chosenCategory);
         }
 
         /// <summary>
