@@ -101,7 +101,7 @@ namespace GroupAssignmentDataBaseMKJ
             return products;
         }
         /// <summary>
-        /// Shows all inventory
+        /// Shows all inventory from the database
         /// </summary>
         /// <returns>a list of the class Inventory</returns>
         public static List<Models.Inventory> ShowAllInventory()
@@ -116,9 +116,8 @@ namespace GroupAssignmentDataBaseMKJ
 
             return inventory;
         }
-
         /// <summary>
-        /// Shows all order detail.
+        /// Shows all order details from the database
         /// </summary>
         /// <returns>a list of the class OrderDetail</returns>
         public static List<Models.OrderDetail> ShowAllOrderDetail()
@@ -133,6 +132,23 @@ namespace GroupAssignmentDataBaseMKJ
 
             return orderDetails;
         }
+        /// <summary>
+        /// Shows all orders from the database
+        /// </summary>
+        /// <returns>a list of the class Order</returns>
+        public static List<Models.Order> ShowAllOrders()
+        {
+            string sql = "SELECT * FROM Orders";
+            var order = new List<Models.Order>();
+
+            using (var connectin = new SqlConnection(connString))
+            {
+                order= connectin.Query<Models.Order>(sql).ToList();
+            }
+
+            return order;
+        }
+
         
     }
 }
