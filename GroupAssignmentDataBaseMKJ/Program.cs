@@ -7,7 +7,7 @@ namespace GroupAssignmentDataBaseMKJ
     {
         static void Main(string[] args)
         {
-            
+
         }
 
         /// <summary>
@@ -33,5 +33,6 @@ namespace GroupAssignmentDataBaseMKJ
 
             return num;
         }
+
     }
 }
