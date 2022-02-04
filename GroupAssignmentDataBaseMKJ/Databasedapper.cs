@@ -119,7 +119,7 @@ namespace GroupAssignmentDataBaseMKJ
         /// <summary>
         /// Shows all order details from the database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>a list of the class OrderDetail</returns>
         public static List<Models.OrderDetail> ShowAllOrderDetail()
         {
             string sql = "SELECT * FROM OrderDetails";
@@ -135,7 +135,7 @@ namespace GroupAssignmentDataBaseMKJ
         /// <summary>
         /// Shows all orders from the database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>a list of the class Order</returns>
         public static List<Models.Order> ShowAllOrders()
         {
             string sql = "SELECT * FROM Orders";
